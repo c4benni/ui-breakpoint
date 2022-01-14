@@ -1,6 +1,6 @@
 {
   "name": "ui-breakpoint",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "A simple, configurable breakpoint class for any Web project.",
   "main": "index.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/c4benni/ui-breakpoint/issues"
   },
-  "homepage": "https://github.com/c4benni/ui-breakpoint#readme"
+  "homepage": "https://github.com/c4benni/ui-breakpoint#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

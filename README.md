@@ -125,7 +125,7 @@ const breakpoint = new UiBreakpoint({
       alert('Only portrait mode supported!')
     } 
     
-    // this is where you update your store to have this globally accessible
+    // this is where you update your store to have the breakpoint globally accessible
     // for framework lovers only.
   }  
 })

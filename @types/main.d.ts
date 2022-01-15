@@ -4,6 +4,11 @@ export type BreakpointConfig = {
 
 export type BreakpointArg = {
   config: BreakpointConfig;
-  useOrientation: boolean;
-  onChange: Function;
+  useOrientation?: boolean;
+  onChange?: Function;
+};
+
+export type BreakpointOutput = {
+  is?: string;
+  orientation?: string;
 };

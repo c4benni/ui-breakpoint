@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/c4benni/ui-breakpoint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c4benni/ui-breakpoint.git"
+  },
   "keywords": [
     "react",
     "typescript",
@@ -20,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/c4benni/ui-breakpoint/issues"
   },
-  "homepage": "https://github.com/c4benni/ui-breakpoint#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  }
+  "homepage": "https://github.com/c4benni/ui-breakpoint#readme"
 }

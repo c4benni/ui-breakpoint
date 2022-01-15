@@ -68,7 +68,7 @@ function updateBreakpointMediaListener(
     name: string;
     index: number;
     matches: boolean;
-    onChange: Function;
+    onChange?: Function;
   }
 ) {
   const name = e.name;
@@ -92,7 +92,7 @@ function updateBreakpointMediaListener(
   }
 }
 
-function mounted(this: BreakpointWrapper, onChange: Function) {
+function mounted(this: BreakpointWrapper, onChange?: Function) {
   if (!installed) {
     parsedBreakpoints.forEach((br, index) => {
       const brNameWrap = /^<.+>/g;
@@ -111,11 +111,13 @@ function mounted(this: BreakpointWrapper, onChange: Function) {
         media: mediaQuery,
         event: "change",
         callback: (e: MediaQueryListEvent) => {
-          updateBreakpointMediaListener.call(this, {
-            matches: e.matches,
-            index,
-            name,
-            onChange,
+          requestAnimationFrame(() => {
+            updateBreakpointMediaListener.call(this, {
+              matches: e.matches,
+              index,
+              name,
+              onChange,
+            });
           });
         },
       });
@@ -133,7 +135,7 @@ class BreakpointWrapper {
     } else if (Object.keys(config).length < 2) {
       throw new SyntaxError("Config object must have at least 2 breakpoints");
     } else if (!installed) {
-      parsedBreakpoints = setParseBreakpoints(config, useOrientation);
+      parsedBreakpoints = setParseBreakpoints(config, useOrientation || false);
 
       mounted.call(this, onChange);
 

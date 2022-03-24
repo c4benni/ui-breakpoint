@@ -10,5 +10,5 @@ export type BreakpointArg = {
 
 export type BreakpointOutput = {
   is?: string;
-  orientation?: string;
+  orientation?: "portrait" | "landscape" | "";
 };

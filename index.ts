@@ -1,22 +1,22 @@
-import { BreakpointArg, BreakpointConfig } from "./@types/main";
+import { BreakpointArg, BreakpointConfig, BreakpointOutput } from "./@types";
 
-const mediaListener = ({
-  media,
-  callback,
-  event = "change",
-}: {
+type MediaListener = (arg: {
   media: MediaQueryList;
-  callback: MediaQueryListEvent | any;
-  event: string;
-}): void => {
+  callback: (e: MediaQueryListEvent) => void;
+}) => void;
+
+export const mediaListener: MediaListener = ({ media, callback }) => {
   try {
-    media.addEventListener(event, callback);
+    media.addEventListener("change", callback);
   } catch (e: any) {
+    // older browser. Hey safari iphone 8!
     if (/undefined is not a function/i.test(e.message)) {
       media?.addListener?.(callback);
     }
   }
 };
+
+const nextTick = async () => await Promise.resolve();
 
 const setParseBreakpoints = (
   config: BreakpointConfig,
@@ -109,22 +109,19 @@ function mounted(this: BreakpointWrapper, onChange?: Function) {
 
       mediaListener({
         media: mediaQuery,
-        event: "change",
-        callback: (e: MediaQueryListEvent) => {
-          requestAnimationFrame(() => {
-            updateBreakpointMediaListener.call(this, {
-              matches: e.matches,
-              index,
-              name,
-              onChange,
-            });
+        callback: async (e: MediaQueryListEvent) => {
+          await nextTick();
+          updateBreakpointMediaListener.call(this, {
+            matches: e.matches,
+            index,
+            name,
+            onChange,
           });
         },
       });
     });
   }
 }
-
 class BreakpointWrapper {
   constructor(arg: BreakpointArg) {
     const { config, useOrientation, onChange } = arg;
@@ -140,6 +137,8 @@ class BreakpointWrapper {
       mounted.call(this, onChange);
 
       Object.freeze(this);
+
+      installed = true;
     }
   }
 
@@ -159,8 +158,7 @@ class BreakpointWrapper {
     return this.output.orientation;
   }
 }
-
-export default class Breakpoint {
+export default class Breakpoint implements BreakpointOutput {
   // mimic a proxy to avoid reassigning
   constructor(arg: BreakpointArg) {
     const breakpointWrapper = new BreakpointWrapper(arg);

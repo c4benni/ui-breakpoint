@@ -1,11 +1,11 @@
 {
     "name": "ui-breakpoint",
-    "version": "0.0.2",
+    "version": "0.0.201",
     "description": "A simple, configurable breakpoint class for any Web project.",
     "files": [
         "dist"
     ],
-    "types": "./@types.ts",
+    "types": "./dist",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "unpkg": "./dist/index.min.js",

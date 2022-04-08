@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mediaListener = void 0;
-const mediaListener = ({ media, callback }) => {
+export const mediaListener = ({ media, callback }) => {
     try {
         media.addEventListener("change", callback);
     }
@@ -12,7 +9,6 @@ const mediaListener = ({ media, callback }) => {
         }
     }
 };
-exports.mediaListener = mediaListener;
 const nextTick = async () => await Promise.resolve();
 const setParseBreakpoints = (config, orientation) => {
     // get entries and sort the values from low to high;
@@ -73,7 +69,7 @@ function mounted(onChange) {
                 index,
                 onChange,
             });
-            (0, exports.mediaListener)({
+            mediaListener({
                 media: mediaQuery,
                 callback: async (e) => {
                     await nextTick();
@@ -115,7 +111,7 @@ class BreakpointWrapper {
         return this.output.orientation;
     }
 }
-class Breakpoint {
+export default class Breakpoint {
     // mimic a proxy to avoid reassigning
     constructor(arg) {
         const breakpointWrapper = new BreakpointWrapper(arg);
@@ -133,5 +129,4 @@ class Breakpoint {
         }
     }
 }
-exports.default = Breakpoint;
 //# sourceMappingURL=index.js.map

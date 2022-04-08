@@ -1,15 +1,13 @@
 {
     "name": "ui-breakpoint",
-    "version": "0.0.204",
+    "version": "0.0.207",
     "description": "A simple, configurable breakpoint class for any Web project.",
     "files": [
         "dist"
     ],
-    "types": "./dist/@types",
-    "main": "./dist/index.js",
+    "types": "./dist",
+    "main": "./dist.index.js",
     "module": "./dist/index.js",
-    "unpkg": "./dist/index.min.js",
-    "jsdelivr": "./dist/index.min.js",
     "exports": {
         ".": {
             "import": "./dist/index.js"
@@ -17,7 +15,7 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc index.ts"
+        "build": "tsc"
     },
     "repository": {
         "type": "git",

@@ -32,5 +32,8 @@
     "bugs": {
         "url": "https://github.com/c4benni/ui-breakpoint/issues"
     },
-    "homepage": "https://github.com/c4benni/ui-breakpoint#readme"
+    "homepage": "https://github.com/c4benni/ui-breakpoint#readme",
+    "dependencies": {
+        "typescript": "^4.7.3"
+    }
 }

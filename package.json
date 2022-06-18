@@ -1,6 +1,6 @@
 {
   "name": "ui-breakpoint",
-  "version": "0.0.208",
+  "version": "0.0.209",
   "description": "A simple, configurable breakpoint class for any Web project.",
   "files": [
     "dist"

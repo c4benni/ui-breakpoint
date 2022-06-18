@@ -1,39 +1,41 @@
 {
-    "name": "ui-breakpoint",
-    "version": "0.0.208",
-    "description": "A simple, configurable breakpoint class for any Web project.",
-    "files": [
-        "dist"
-    ],
-    "types": "./dist",
-    "main": "./dist.index.js",
-    "module": "./dist/index.js",
-    "exports": {
-        ".": {
-            "import": "./dist/index.js"
-        }
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/c4benni/ui-breakpoint.git"
-    },
-    "keywords": [
-        "react",
-        "typescript",
-        "vue",
-        "breakpoint"
-    ],
-    "author": "Chidi Benedict",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/c4benni/ui-breakpoint/issues"
-    },
-    "homepage": "https://github.com/c4benni/ui-breakpoint#readme",
-    "dependencies": {
-        "typescript": "^4.7.3"
+  "name": "ui-breakpoint",
+  "version": "0.0.208",
+  "description": "A simple, configurable breakpoint class for any Web project.",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist",
+  "module": "./dist/index",
+  "unpkg": "./dist/index",
+  "jsdelivr": "./dist/index",
+  "exports": {
+    ".": {
+      "import": "./dist/index",
+      "require": "./dist/index"
     }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c4benni/ui-breakpoint.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "vue",
+    "breakpoint"
+  ],
+  "author": "Chidi Benedict",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c4benni/ui-breakpoint/issues"
+  },
+  "homepage": "https://github.com/c4benni/ui-breakpoint#readme",
+  "dependencies": {
+    "typescript": "^4.7.3"
+  }
 }
